@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Document Upload</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+
+    <h2 class="text-center mb-4">Upload Verified Student Document</h2>
+
+    <form method="POST" enctype="multipart/form-data" class="border p-4 rounded shadow">
+        <div class="mb-3">
+            <label class="form-label">Student Name</label>
+            <input type="text" name="student_name" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Student ID</label>
+            <input type="text" name="student_id" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Document Type</label>
+            <select name="doc_type" class="form-select" required>
+                <option value="">-- Select Type --</option>
+                <option value="ID Card">Student ID Card</option>
+                <option value="Degree">Student Degree</option>
+                <option value="Marksheet">Marksheet</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Upload Document Image</label>
+            <input type="file" name="document" accept="image/*" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Upload & Generate QR</button>
+    </form>
+
+</body>
+</html>
+
