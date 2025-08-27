@@ -1,112 +1,58 @@
 📄 Document Verification System using QR Scanner
-🚀 Overview
 
-This project is a Document Verification System built using Flask, MySQL, OpenCV, and QR code technology. It provides a secure and efficient way to verify official documents by embedding QR codes that store encrypted document identifiers. A QR scanner can then be used to validate authenticity, ensuring tamper-proof and quick verification.
+Welcome to the Document Verification System — a secure and efficient solution for verifying documents using QR code technology. Each document is embedded with a unique QR code linked to its metadata in the database. By scanning the QR, authenticity can be instantly validated, ensuring a tamper-proof and hassle-free verification process.
 
-The solution aims to replace manual document checks with an automated and technology-driven approach, reducing errors, fraud, and processing time.
+🔍 Overview
 
-🎯 Features
+Manual verification of documents is often time-consuming and prone to fraud. This project introduces an automated QR-based document verification system, combining Flask, MySQL, OpenCV, and QR libraries to deliver a reliable solution. It provides a seamless workflow for document upload, QR generation, and verification through scanning.
 
-🔐 Secure Document Upload (admin-only upload system)
+💡 Key Features
 
-📦 QR Code Generation for each uploaded document
+📤 Admin-only document upload system
+🔐 Unique QR code generation for each uploaded document
+📷 Real-time QR scanning using OpenCV & Pyzbar
+💾 Database-backed storage (MySQL) for document records and verification logs
+⚡ Instant verification results (Authentic ❌ Invalid)
+🛡️ Prevents tampering & fraud with secure QR linking
 
-📷 QR Scanner Integration using OpenCV for real-time document verification
+🧠 Verification Logic
 
-💾 Database Integration with MySQL to store document metadata and verification history
+The system validates documents using the following workflow:
 
-⚡ Fast & Hassle-Free Verification process
+Step	Action	Result
+1️⃣	Admin uploads document	Unique ID generated
+2️⃣	System stores metadata in DB	QR code created with ID
+3️⃣	QR attached to document	Saved in system
+4️⃣	Scanner reads QR at verification	Extracted ID checked in DB
+5️⃣	Match found ✅	Document marked authentic
+6️⃣	No match ❌	Document flagged invalid
+🚀 Tech Stack
 
-🛡️ Tamper-proof system – QR ensures document integrity
-
-🛠️ Tech Stack
-
-Backend: Flask (Python)
-
-Frontend: HTML, CSS, JavaScript (Bootstrap for UI)
-
+Frontend: HTML, CSS, Bootstrap
+Backend: Python (Flask)
 Database: MySQL
-
-QR Code Generation: Python qrcode library
-
-QR Code Scanning: OpenCV + pyzbar
-
-Other Tools: Werkzeug (for secure file handling)
-
-⚙️ How It Works
-
-Admin uploads a document via the portal.
-
-A unique ID is generated and stored in the database.
-
-A QR code containing this ID is generated and attached to the document.
-
-During verification, a QR scanner reads the code.
-
-The system cross-checks the ID with the database.
-
-✅ If it matches → The document is verified as authentic.
-❌ Otherwise → It is flagged as invalid or tampered.
+QR Generation: Python qrcode
+QR Scanning: OpenCV, Pyzbar
+Other Tools: Werkzeug (secure file handling)
 
 📂 Project Structure
-document-verification-qr/
-│── app.py                # Flask backend
-│── static/               # CSS, JS, images
-│── templates/            # HTML templates
-│── uploads/              # Uploaded documents
-│── qrcodes/              # Generated QR codes
-│── database.sql          # MySQL schema
-│── requirements.txt      # Dependencies
-│── README.md             # Project documentation
-
-🚀 Installation & Setup
-
-Clone the Repository
-
-git clone https://github.com/your-username/document-verification-qr.git
-cd document-verification-qr
-
-
-Create Virtual Environment & Install Dependencies
-
-python -m venv venv
-source venv/bin/activate   # For Linux/Mac
-venv\Scripts\activate      # For Windows
-
-pip install -r requirements.txt
-
-
-Setup MySQL Database
-
-Import database.sql into MySQL
-
-Update your app.py with DB credentials
-
-Run Flask Server
-
-python app.py
-
-
-Server runs on: http://127.0.0.1:5000/
-
-📸 Screenshots (Optional if you add later)
-
-Document Upload Page
-
-QR Code Generated Example
-
-Verification Success/Failure Page
+Document-Verification-QR/
+│── app.py            # Main Flask app
+│── templates/        # HTML templates (upload, verify, result)
+│── static/           # CSS, JS, styling
+│── uploads/          # Uploaded documents
+│── qrcodes/          # Generated QR codes
+│── database.sql      # MySQL schema
+│── requirements.txt  # Dependencies
+│── README.md         # Project documentation
 
 🌟 Aspirational Goal
 
-As a CSE student passionate about emerging technologies, I built this project to explore secure identity verification systems that solve real-world problems. By blending machine learning, databases, and computer vision, I aim to design systems that make daily processes smarter, faster, and more secure, reducing human effort and ensuring trust in digital workflows.
+As a CSE student passionate about new and emerging technologies, I built this project to explore how computer vision and database systems can enhance document security. My goal is to create innovative solutions that reduce manual effort, eliminate fraud, and make verification faster, smarter, and more trustworthy in real-world scenarios.
 
 📌 Future Enhancements
 
-🔄 Blockchain integration for immutable verification
-
-📱 Mobile app version for on-the-go scanning
-
-🔔 Email/SMS alerts on document verification
-
-🌐 Deployment on cloud platforms (AWS/GCP/Azure)
+🔄 Blockchain-based immutable verification
+📱 Mobile app for QR scanning on-the-go
+🔔 SMS/Email alerts on verification results
+🌐 Deployment on AWS/GCP for scalability
